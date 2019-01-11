@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise;
 //MongoDB Connection
 before(function(done){
 
-  mongoose.connect('mongodb://localhost/CRUD');
+  mongoose.connect('mongodb://localhost/CRUD',{useNewUrlParser: true});
   mongoose.connection.once('open',function(){
 
     console.log('Mongo Connected');

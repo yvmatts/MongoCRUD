@@ -5,9 +5,11 @@ const Student = require('../models/student.js');
 
 describe('Find Test',function(){
 
+var s;
+
 beforeEach(function(done){
 
-  var s = new Student({
+   s = new Student({
 
     name: "Yash",
     age: 21,
@@ -25,7 +27,7 @@ beforeEach(function(done){
 });
 
 
-  it('Find Record', function(done){
+  it('Find Record using attributes', function(done){
 
       Student.findOne({name:"Yash",age:21,contact:"8050002948"}).then(function(result){
 
@@ -33,6 +35,17 @@ beforeEach(function(done){
           done();
 
       });
+
+  });
+
+  it('Find Record using ID',function(done){
+
+    Student.findOne({_id : s._id}).then(function(result){
+
+      assert(result._id.toString() === s._id.toString());
+      console.log(result._id);
+      done();
+    });
 
   });
 
