@@ -3,9 +3,9 @@ const assert = require('assert');
 const Student = require('../models/student.js');
 
 
-describe('CRUD Tests',function(done){
+describe('Save Tests',function(){
 
-  it('Create Record',async function(){
+  it('Create Record',function(done){
 
     var s = new Student({
 
@@ -16,7 +16,7 @@ describe('CRUD Tests',function(done){
 
     });
 
-    
+
     s.save().then(function(){
 
       assert(s.isNew === false);

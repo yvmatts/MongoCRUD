@@ -3,13 +3,13 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 //MongoDB Connection
-//before(function(done){
+before(function(done){
 
   mongoose.connect('mongodb://localhost/CRUD');
   mongoose.connection.once('open',function(){
 
     console.log('Mongo Connected');
-    //done();
+    done();
   }).on('error',function(error){
 
     console.log(error);
@@ -17,4 +17,16 @@ mongoose.Promise = global.Promise;
   });
 
 
-//});
+});
+
+//Drop Previous Test Data
+
+beforeEach(function(done){
+
+  mongoose.connection.collections.studentmodels.drop(function(){
+
+    done();
+
+  });
+
+});
