@@ -13,6 +13,7 @@ before(function(done){
   }).on('error',function(error){
 
     console.log(error);
+    console.log("Not working Properly");
 
   });
 
